@@ -1,0 +1,7 @@
+FROM postgres
+RUN apt-get update
+COPY db /db
+COPY words.sql /db
+CMD cat words.sql
+CMD ["./postgres.sh"]
+
