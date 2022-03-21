@@ -1,6 +1,6 @@
 FROM golang
-COPY static /static
-COPY dispatcher.go /static
-CMD cd static
-#RUN go build dispatcher.go
-#CMD ["./dispatcher"]
+#ADD static /static
+COPY dispatcher.go .
+#CMD cd static
+RUN go build dispatcher.go
+CMD ["./dispatcher"]

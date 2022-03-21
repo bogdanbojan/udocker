@@ -1,5 +1,6 @@
 FROM ubuntu
 RUN apt-get update
-RUN apt-get install maven openjdk-8-jdk
-CMD mvn verify
-CMD java -Xmx8m -Xms8m -jar words.jar
+RUN apt-get install maven openjdk-8-jdk -y
+COPY . .
+RUN mvn verify
+CMD cd target ; java -Xmx8m -Xms8m -jar words.jar
