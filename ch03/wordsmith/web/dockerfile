@@ -1,6 +1,8 @@
-FROM golang
-#ADD static /static
+FROM golang:alpine
+WORKDIR web
 COPY dispatcher.go .
-#CMD cd static
 RUN go build dispatcher.go
+
+FROM alpine
+COPY --from=0 go/web/dispatcher ./
 CMD ["./dispatcher"]
