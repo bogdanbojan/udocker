@@ -5,4 +5,5 @@ RUN go build dispatcher.go
 
 FROM alpine
 COPY --from=0 go/web/dispatcher ./
+COPY static static
 CMD ["./dispatcher"]

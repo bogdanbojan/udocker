@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+  db:
+    build: db
+
+  words:
+    image: jpetazzo/hamba
+    command: 8080 words1:8080 words2:8080 words3:8080
+
+  words1:
+    build: words
+  words2:
+    build: words
+  words3:
+    build: words
+
+  web:
+    build: web
+    ports:
+      - 80
+
+

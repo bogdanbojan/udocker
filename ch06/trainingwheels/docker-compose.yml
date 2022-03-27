@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  www:
+    build: www
+    ports:
+      - ${PORT-8000}:5000
+    user: nobody
+    environment:
+      DEBUG: 1
+    command: python counter.py
+    volumes:
+      - ./www:/src
+
+  redis:
+    image: redis
